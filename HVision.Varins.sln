@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HVision.Varins", "HVision.Varins\HVision.Varins.csproj", "{15960590-6E98-4572-AC68-B713BA9DFF80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HVision.Common", "HVision.Common\HVision.Common.csproj", "{7C1874E0-A16B-459D-88B1-ACF22CE01566}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HVision.Matrox", "HVision.Matrox\HVision.Matrox.vcxproj", "{AEBEA46E-72F8-4AA5-A37F-EAB014BBE0A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15960590-6E98-4572-AC68-B713BA9DFF80}.Debug|x64.ActiveCfg = Debug|x64
+		{15960590-6E98-4572-AC68-B713BA9DFF80}.Debug|x64.Build.0 = Debug|x64
+		{15960590-6E98-4572-AC68-B713BA9DFF80}.Release|x64.ActiveCfg = Release|x64
+		{15960590-6E98-4572-AC68-B713BA9DFF80}.Release|x64.Build.0 = Release|x64
+		{7C1874E0-A16B-459D-88B1-ACF22CE01566}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7C1874E0-A16B-459D-88B1-ACF22CE01566}.Debug|x64.Build.0 = Debug|Any CPU
+		{7C1874E0-A16B-459D-88B1-ACF22CE01566}.Release|x64.ActiveCfg = Release|x64
+		{7C1874E0-A16B-459D-88B1-ACF22CE01566}.Release|x64.Build.0 = Release|x64
+		{AEBEA46E-72F8-4AA5-A37F-EAB014BBE0A4}.Debug|x64.ActiveCfg = Debug|x64
+		{AEBEA46E-72F8-4AA5-A37F-EAB014BBE0A4}.Debug|x64.Build.0 = Debug|x64
+		{AEBEA46E-72F8-4AA5-A37F-EAB014BBE0A4}.Release|x64.ActiveCfg = Release|x64
+		{AEBEA46E-72F8-4AA5-A37F-EAB014BBE0A4}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAC8C604-BA64-47FE-BCA3-94F75B4C1382}
+	EndGlobalSection
+EndGlobal

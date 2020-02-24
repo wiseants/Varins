@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="HVision.Varins.Views.Panes.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:views="clr-namespace:HVision.Varins.Views"
+			 xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+			 xmlns:prism="http://prismlibrary.com/"
+             xmlns:local="clr-namespace:HVision.Varins.Views"
+             mc:Ignorable="d" 
+			 DataContext="{Binding Path=MenuViewModel, Source={StaticResource Locator}}"
+             d:DesignHeight="30" d:DesignWidth="1280">
+	<i:Interaction.Triggers>
+		<i:EventTrigger EventName="Loaded">
+			<i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+		</i:EventTrigger>
+		<i:EventTrigger EventName="Closed">
+			<i:InvokeCommandAction Command="{Binding ClosedCommand}"/>
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+	<Menu>
+        <MenuItem Header="File">
+			<MenuItem Header="New" Command="{Binding Path=NewRecipeCommand}" />
+			<MenuItem Header="Open" Command="{Binding Path=OpenRecipeCommand}" />
+            <Separator />
+			<MenuItem Header="Close" Command="{Binding Path=CloseRecipeCommand}" />
+            <Separator />
+			<MenuItem Header="Save" Command="{Binding Path=SaveRecipeCommand}" />
+			<MenuItem Header="Save as" Command="{Binding Path=SaveAsRecipeCommand}" />
+            <Separator />
+            <MenuItem Header="Exit" Command="{Binding Path=ExitCommand}" />
+        </MenuItem>
+		<MenuItem Header="User">
+			<MenuItem Header="Login" Command="{Binding Path=LoginCommand}" />
+		</MenuItem>
+		<MenuItem Header="Help">
+			<MenuItem Header="About" Command="{Binding Path=AboutCommand}" />
+		</MenuItem>
+	</Menu>
+</UserControl>

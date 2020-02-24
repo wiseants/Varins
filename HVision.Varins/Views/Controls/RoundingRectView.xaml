@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="HVision.Varins.Views.Controls.RoundingRectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <StackPanel>
+		<TextBlock Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" />
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="CenterPosition X" />
+			<TextBox Grid.Column="1" Text="{Binding Path=X, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="CenterPosition Y" />
+			<TextBox Grid.Column="1" Text="{Binding Path=Y, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Width" />
+			<TextBox Grid.Column="1" Text="{Binding Path=Width, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="Height" />
+			<TextBox Grid.Column="1" Text="{Binding Path=Height, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="RadiusX" />
+			<TextBox Grid.Column="1" Text="{Binding Path=Shape.RadiusX, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Grid.Column="0" Text="RadiusY" />
+			<TextBox Grid.Column="1" Text="{Binding Path=Shape.RadiusY, UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+	</StackPanel>
+</UserControl>

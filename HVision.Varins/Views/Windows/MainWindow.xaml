@@ -1,0 +1,76 @@
+﻿<mvvm:HandleableWindow x:Class="HVision.Varins.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mvvm="clr-namespace:HVision.Common.Mvvm;assembly=HVision.Common"
+        xmlns:local="clr-namespace:HVision.Varins"
+        xmlns:cores="clr-namespace:HVision.Varins.Cores;assembly=HVision.Varins"
+		xmlns:views="clr-namespace:HVision.Varins.Views"
+		xmlns:models="clr-namespace:HVision.Varins.Models"
+		xmlns:converter="clr-namespace:HVision.Common.Converter;assembly=HVision.Common"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:prism="http://prismlibrary.com/"
+        mc:Ignorable="d" 
+		DataContext="{Binding Path=MainWindowViewModel, Source={StaticResource Locator}}"
+        Title="Varins" Height="1024" Width="1280">
+	<mvvm:HandleableWindow.Resources>
+		<local:Constant x:Key="const" />
+		<converter:NameToRegionConverter x:Key="nameToRegionConverter" />
+	</mvvm:HandleableWindow.Resources>
+	<i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ClosedCommand}"/>
+        </i:EventTrigger>
+	</i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+		<ContentControl  Grid.Row="0" Margin="5" BorderThickness="1" BorderBrush="Black" 
+						 prism:RegionManager.RegionName="{Binding Path=MENU_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}" 
+                         DataContext="{Binding Path=MenuViewModel}" />
+		<ContentControl Grid.Row="1" Margin="5" BorderThickness="1" BorderBrush="Black" 
+						prism:RegionManager.RegionName="{Binding Path=INFO_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}" 
+                        DataContext="{Binding Path=InfoViewModel}" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="500" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+				<ContentControl Grid.Row="0" Margin="5" BorderThickness="1" BorderBrush="Black"
+								prism:RegionManager.RegionName="{Binding Path=DISPLAY_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}"  
+                                 />
+				<ContentControl Grid.Row="1" Margin="5" BorderThickness="1" BorderBrush="Black"
+								prism:RegionManager.RegionName="{Binding Path=MESSAGE_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}"  
+                                 />
+            </Grid>
+			<TabControl Grid.Column="1" TabStripPlacement="Left">
+				<TabItem Header="Grab">
+					<ContentControl Margin="5" BorderBrush="Black"
+								prism:RegionManager.RegionName="{Binding Path=GRAB_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}"  
+                                 />
+				</TabItem>
+				<TabItem Header="Drawing">
+					<ContentControl Margin="5" BorderBrush="Black"
+								prism:RegionManager.RegionName="{Binding Path=DRAWING_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}"  
+                                 />
+				</TabItem>
+				<TabItem Header="Spec">
+					<ContentControl Margin="5" BorderBrush="Black"
+								prism:RegionManager.RegionName="{Binding Path=SPECLIST_PANE, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}" />				
+				</TabItem>
+			</TabControl>
+        </Grid>
+    </Grid>
+</mvvm:HandleableWindow>

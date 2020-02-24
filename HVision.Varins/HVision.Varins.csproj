@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props" Condition="Exists('..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15960590-6E98-4572-AC68-B713BA9DFF80}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HVision.Varins</RootNamespace>
+    <AssemblyName>HVision.Varins</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm, Version=1.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Prism.Mvvm.1.1.1\lib\net45\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm.Desktop, Version=1.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Mvvm.1.1.1\lib\net45\Microsoft.Practices.Prism.Mvvm.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.SharedInterfaces, Version=1.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Mvvm.1.1.1\lib\net45\Microsoft.Practices.Prism.SharedInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.3.3, Culture=neutral, PublicKeyToken=8985beaab7ea3f04, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft-WindowsAPICodePack-Core.1.1.3.3\lib\net452\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.3.3, Culture=neutral, PublicKeyToken=8985beaab7ea3f04, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft-WindowsAPICodePack-Shell.1.1.3.3\lib\net452\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net46\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Blob, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net46\OpenCvSharp.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net46\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.UserInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\lib\net46\OpenCvSharp.UserInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.6.3.0\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Behaviors\CheckAuthorityBehavior.cs" />
+    <Compile Include="Controls\DrawingGridControl.xaml.cs">
+      <DependentUpon>DrawingGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResultObjectGridControl.xaml.cs">
+      <DependentUpon>ResultObjectGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BuildUserControlConverter.cs" />
+    <Compile Include="Converters\IsCheckedToContentConverter.cs" />
+    <Compile Include="Cores\Algorithms\AlignAlgorithm.cs" />
+    <Compile Include="Cores\Algorithms\BondAlgorithm.cs" />
+    <Compile Include="Cores\CanvasService.cs" />
+    <Compile Include="Cores\EditableShapeController.cs" />
+    <Compile Include="Cores\GrabberController.cs" />
+    <Compile Include="Cores\GrabImageConverter.cs" />
+    <Compile Include="Cores\Shapes\EditableRoundingRect.cs" />
+    <Compile Include="Cores\ViewModelLocator.cs" />
+    <Compile Include="Delegate.cs" />
+    <Compile Include="Cores\ControlPoints\BottomControlPoint.cs" />
+    <Compile Include="Cores\ControlPoints\LeftControlPoint.cs" />
+    <Compile Include="Cores\ControlPoints\RadiusControlPoint.cs" />
+    <Compile Include="Cores\ControlPoints\RightControlPoint.cs" />
+    <Compile Include="Cores\ControlPoints\TopControlPoint.cs" />
+    <Compile Include="Interfaces\Algorithms\IAlgorithm.cs" />
+    <Compile Include="Interfaces\Drawing\IDrawing.cs" />
+    <Compile Include="Interfaces\Grab\IGrabber.cs" />
+    <Compile Include="Interfaces\Grab\IGrabImage.cs" />
+    <Compile Include="Interfaces\IDeviceInfo.cs" />
+    <Compile Include="Interfaces\IMessageInfo.cs" />
+    <Compile Include="Interfaces\Results\IInspectedResult.cs" />
+    <Compile Include="Interfaces\Results\IResultObject.cs" />
+    <Compile Include="Interfaces\ViewModels\IAlgorithmViewModel.cs" />
+    <Compile Include="Interfaces\Algorithms\IParameter.cs" />
+    <Compile Include="Interfaces\Algorithms\ISpec.cs" />
+    <Compile Include="Interfaces\ViewModels\IDisplayViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IDrawingViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IGrabViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IImageViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\ILoginWindowViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IMainWindowViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IMenuViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IInfoViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\IResultWindowViewModel.cs" />
+    <Compile Include="Interfaces\ViewModels\ISpecListViewModel.cs" />
+    <Compile Include="JsonConverters\ConverterContractResolver.cs" />
+    <Compile Include="JsonConverters\DrawingConverter.cs" />
+    <Compile Include="JsonConverters\EditableShapeConverter.cs" />
+    <Compile Include="JsonConverters\JsonCreationConverter.cs" />
+    <Compile Include="JsonConverters\SpecConverter.cs" />
+    <Compile Include="Models\AccountInfo.cs" />
+    <Compile Include="Models\DeviceInfo.cs" />
+    <Compile Include="Models\Drawing\AlignDrawing.cs" />
+    <Compile Include="Models\Drawing\BondDrawing.cs" />
+    <Compile Include="Models\Drawing\DrawingController.cs" />
+    <Compile Include="Cores\Grab\FileGrabber.cs" />
+    <Compile Include="Models\Grab\GrabImage.cs" />
+    <Compile Include="Models\Grab\GrabImageInfo.cs" />
+    <Compile Include="Models\Grab\GrabInfo.cs" />
+    <Compile Include="Models\MessageInfo.cs" />
+    <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\Results\InspectedResult.cs" />
+    <Compile Include="Models\Results\ResultObject.cs" />
+    <Compile Include="Models\RoleInfo.cs" />
+    <Compile Include="Models\Spec\AlignSpec.cs" />
+    <Compile Include="Models\Spec\BondSpec.cs" />
+    <Compile Include="ViewModels\Controls\GrabInfoViewModel.cs" />
+    <Compile Include="ViewModels\Controls\ImageViewModel.cs" />
+    <Compile Include="ViewModels\Controls\ResultViewModel.cs" />
+    <Compile Include="ViewModels\Panes\AlignViewModel.cs" />
+    <Compile Include="ViewModels\Panes\DrawingViewModel.cs" />
+    <Compile Include="ViewModels\Panes\GrabViewModel.cs" />
+    <Compile Include="ViewModels\Panes\InfoViewModel.cs" />
+    <Compile Include="ViewModels\Panes\DisplayViewModel.cs" />
+    <Compile Include="ViewModels\Panes\SpecListViewModel.cs" />
+    <Compile Include="Cores\SpecController.cs" />
+    <Compile Include="ViewModels\Windows\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\Windows\MainWindowViewModel.Methods.cs" />
+    <Compile Include="ViewModels\Windows\MainWindowViewModel.Properties.cs" />
+    <Compile Include="ViewModels\Panes\MenuViewModel.cs" />
+    <Compile Include="ViewModels\Windows\ResultWindowViewModel.cs" />
+    <Compile Include="Views\Controls\BondSpecView.xaml.cs">
+      <DependentUpon>BondSpecView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\GrabInfoView.xaml.cs">
+      <DependentUpon>GrabInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ImageView.xaml.cs">
+      <DependentUpon>ImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\RoundingRectView.xaml.cs">
+      <DependentUpon>RoundingRectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\AlignSpecView.xaml.cs">
+      <DependentUpon>AlignSpecView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Panes\DrawingView.xaml.cs">
+      <DependentUpon>DrawingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Panes\GrabView.xaml.cs">
+      <DependentUpon>GrabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Panes\InfoView.xaml.cs">
+      <DependentUpon>InfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Panes\DisplayView.xaml.cs">
+      <DependentUpon>DisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Panes\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Panes\SpecListView.xaml.cs">
+      <DependentUpon>SpecListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\ResultWindow.xaml.cs">
+      <DependentUpon>ResultWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\DrawingGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ResultObjectGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\BondSpecView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\GrabInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\ImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\RoundingRectView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\AlignSpecView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Panes\DrawingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panes\GrabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panes\InfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panes\MessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panes\DisplayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="Interfaces\ViewModels\IMessageViewModel.cs" />
+    <Compile Include="Modules\GeneralViewModule.cs" />
+    <Compile Include="ViewModels\Panes\MessageViewModel.cs" />
+    <Compile Include="ViewModels\Windows\MainWindowViewModel.cs" />
+    <Compile Include="Views\Panes\MessageView.xaml.cs">
+      <DependentUpon>MessageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Panes\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panes\SpecListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\ResultWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HVision.Common\HVision.Common.csproj">
+      <Project>{7c1874e0-a16b-459d-88b1-acf22ce01566}</Project>
+      <Name>HVision.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HVision.Matrox\HVision.Matrox.vcxproj">
+      <Project>{aebea46e-72f8-4aa5-a37f-eab014bbe0a4}</Project>
+      <Name>HVision.Matrox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp3-AnyCPU.3.4.1.20180319\build\OpenCvSharp3-AnyCPU.props'))" />
+  </Target>
+</Project>

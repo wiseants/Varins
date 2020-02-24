@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="HVision.Varins.Views.Panes.DrawingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lcontrols="clr-namespace:HVision.Varins.Controls"
+			 xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+			 xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+			 DataContext="{Binding Path=DrawingViewModel, Source={StaticResource Locator}}"
+             d:DesignHeight="600" d:DesignWidth="500">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="200" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<lcontrols:DrawingGridControl Grid.Row="0" 
+									  Items="{Binding Path=DrawingControllerList, UpdateSourceTrigger=PropertyChanged}"
+									  SelectedItem="{Binding Path=DrawingControllerList, UpdateSourceTrigger=PropertyChanged}"
+									  SelectedIndex="{Binding Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<Button Grid.Row="1" Content="Draw" Command="{Binding Path=DrawCommand}" />
+		<ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+			<ItemsControl ItemsSource="{Binding Path=Controls, UpdateSourceTrigger=PropertyChanged}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel HorizontalAlignment="Center" Orientation="Vertical" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

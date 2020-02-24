@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="HVision.Varins.Views.Panes.DisplayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HVision.Varins"
+			 xmlns:converter="clr-namespace:HVision.Common.Converter;assembly=HVision.Common"
+			 xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" x:Name="MainViewUserControl"
+			 DataContext="{Binding Path=DisplayViewModel, Source={StaticResource Locator}}"
+             d:DesignHeight="624" d:DesignWidth="780">
+	<UserControl.Resources>
+		<local:Constant x:Key="const" />
+		<converter:NameToRegionConverter x:Key="nameToRegionConverter" />
+	</UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+		<TextBlock Grid.Row="0" Text="{Binding Path=CurrentRecipe.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<ContentControl Grid.Row="1" Margin="5" BorderThickness="1"
+						prism:RegionManager.RegionName="{Binding Path=IMAGE_CONTROL, Converter={StaticResource nameToRegionConverter}, Source={StaticResource const}}" 
+						DataContext="{Binding ImageViewModel, UpdateSourceTrigger=PropertyChanged}" />
+	</Grid>
+</UserControl>
