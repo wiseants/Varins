@@ -1,26 +1,29 @@
 ﻿using HVision.Common.Mvvm;
 using HVision.Varins.Cores;
 using HVision.Varins.Models;
-using HVision.Varins.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace HVision.Varins.Interfaces.ViewModels
 {
-	public interface IMainWindowViewModel
+    public interface IMainWindowViewModel
 	{
-		event ChangedRecipe ChangedRecipe;
+        #region Fields
+
+        event ChangedRecipe ChangedRecipe;
 		event ChangedAccount ChangedAccount;
 
-		Recipe CurrentRecipe { get; set; }
+        #endregion
+
+        #region Properties
+
+        Recipe CurrentRecipe { get; set; }
 		AccountInfo CurrentAccount { get; set; }
 		ObservableDictionary<int, GrabberController> GrabberControllerMap { get; }
 
-		bool? OpenLoginWindow();
+        #endregion
+
+        #region Public methods
+
+        bool? OpenLoginWindow();
         void Close();
 		void NewRecipe();
 		void OpenRecipe();
@@ -28,5 +31,7 @@ namespace HVision.Varins.Interfaces.ViewModels
 		void SaveRecipe();
 		void SaveAsRecipe();
 		void DoInspect();
-	}
+
+        #endregion
+    }
 }

@@ -1,29 +1,10 @@
-﻿using HVision.Varins.Interfaces;
-using Microsoft.Practices.Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Practices.Unity;
-using HVision.Varins.Cores;
-using System.Windows.Controls;
-using Prism.Regions;
-using HVision.Varins.Models;
+﻿using HVision.Common;
 using HVision.Common.Interface;
-using HVision.Common;
-using HVision.Matrox;
-using System.Windows.Input;
 using HVision.Common.Mvvm;
-using Microsoft.Practices.Prism.Commands;
-using Prism.Interactivity.InteractionRequest;
 using HVision.Varins.Interfaces.ViewModels;
-using HVision.Common.Tool;
-using HVision.Varins.Interfaces.Algorithms;
-using HVision.Varins.Interfaces.Grab;
-using HVision.Varins.Models.Grab;
-using System.Collections.Specialized;
+using HVision.Varins.Models;
+using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Unity;
 
 namespace HVision.Varins.ViewModels.Windows
 {
@@ -73,8 +54,8 @@ namespace HVision.Varins.ViewModels.Windows
 				RoleInfoMap = RoleInfoMap
 			});
 
-			MilApplication.Instance().Alloc();
-			MilSystem.Instance().Alloc();
+			//MilApplication.Instance().Alloc();
+			//MilSystem.Instance().Alloc();
 		}
 
 		#endregion
