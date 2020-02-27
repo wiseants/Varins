@@ -1,6 +1,7 @@
 ﻿#Folders
 configuration/
 log/
+Unmanaged/MIL10/
 
 #extends
 *.bak
