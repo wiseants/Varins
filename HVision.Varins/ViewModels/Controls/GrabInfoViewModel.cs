@@ -2,18 +2,12 @@
 using HVision.Varins.Models.Grab;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Unity;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace HVision.Varins.ViewModels.Controls
 {
-	public class GrabInfoViewModel : BindableBase
+    public class GrabInfoViewModel : BindableBase
 	{
 		public event Grabbing StartedGrab;
 
