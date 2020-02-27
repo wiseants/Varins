@@ -2,36 +2,25 @@
 using HVision.Common.Cores.Shapes;
 using HVision.Common.Interface;
 using HVision.Common.Mvvm;
-using HVision.Common.Tool;
 using HVision.Varins.Cores;
 using HVision.Varins.Interfaces.Grab;
 using HVision.Varins.Interfaces.ViewModels;
 using HVision.Varins.Models;
-using HVision.Varins.Models.Drawing;
 using HVision.Varins.Models.Grab;
-using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Unity;
 using OpenCvSharp;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace HVision.Varins.ViewModels.Controls
 {
-	public class ImageViewModel : BindableBase, IImageViewModel
+    public class ImageViewModel : BindableBase, IImageViewModel
 	{
 		#region Fields
 
