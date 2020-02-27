@@ -15,7 +15,7 @@ namespace HVision.Varins.ViewModels.Panes
 	public class AlignViewModel : BindableBase, IAlgorithmViewModel
     {
 		private readonly IUnityContainer _container = null;
-		private IParameter _parameter = null;
+		private readonly IParameter _parameter = null;
 
 		public AlignViewModel(IUnityContainer container)
 		{
